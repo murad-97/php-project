@@ -96,7 +96,7 @@ here;
                                 </div>
                                 <div class="col-lg-5">
 
-                                    <div class="card bg-primary text-white rounded-3">
+                                    <div class="card bg-primary text-white rounded-3" style="background-color: #9ad5b1!important;">
                                         <div class="card-body">
                                             <div class="d-flex justify-content-between align-items-center mb-4">
                                                 <h5 class="mb-0">Card details</h5>
@@ -184,16 +184,16 @@ here;
                                                     </p>
                                                 </div>
                                                 <?php include("ndex.php") ?>
-                                                <button type="submit" class="btn btn-info btn-block btn-lg">
+                                                <button type="submit" class="btn btn-warning btn-block btn-lg">
                                                     <div class="d-flex justify-content-between">
-                                                        <span>$
+                                                        <span style =" color:white !important">$
                                                             <?php
                                                             echo $_SESSION["cart"]["full_price"]
 
                                                                 ?>
                                                         </span>
-                                                        <span>Checkout <i
-                                                                class="fas fa-long-arrow-alt-right ms-2"></i></span>
+                                                        <span style =" color:white !important">Checkout <i
+                                                                class="fas fa-long-arrow-alt-right ms-2" style =" color:white !important"></i></span>
                                                     </div>
                                                 </button>
                                             </form>
