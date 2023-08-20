@@ -98,7 +98,7 @@ if (isset($_SESSION['userid'])) {
               
                 if (isset($_GET["id"])) {
                     $_SESSION["pro"]=$_GET["id"];}
-print_r($_SESSION["product"]);
+// print_r($_SESSION["product"]);
                     if(isset($_SESSION["pro"])){
                     $pdo_read = $conn->prepare("SELECT * FROM `product` WHERE id = $_SESSION[pro] ");
                     $pdo_read->execute();

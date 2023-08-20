@@ -361,9 +361,9 @@ include("connectdata.php");
           $name = $_POST["name"];
 
           $category = $_POST["category"];
-          $color = $_POST["color"];
-          $spesification = $_POST["spesification"];
-          $category = $_POST["capacity"];
+          $product_color = $_POST["product_color"];
+          $specification = $_POST["specification"];
+          $capacity = $_POST["capacity"];
 
           $price = $_POST["price"];
 
@@ -472,11 +472,11 @@ include("connectdata.php");
 
 
           $insert = "INSERT INTO product(category_id,product_name,discription,
-price,status,main_picture,picture1,picture2,picture3) VALUES (:category_id,:product_name,:discription,:price,:status,:main_picture,:picture1,:picture2,:picture3,:color,:spesification,:capacity)";
+price,status,main_picture,picture1,picture2,picture3,product_color,specification,capacity) VALUES (:category_id,:product_name,:discription,:price,:status,:main_picture,:picture1,:picture2,:picture3,:product_color,:specification,:capacity)";
 
 
           $insertin = $conn->prepare($insert);
-          $pdo = $insertin->execute(array(':category_id' => $category, ':product_name' => $name, ':discription' => $description, ':price' => $price, ':status' => $status, ':main_picture' => $main_image, ':picture1' => $image_name1, ':picture2' => $image_name2, ':picture3' => $image_name3, ':color' => $color, ':spesification' => $spesification, ':capacity' => $capacity));
+          $pdo = $insertin->execute(array(':category_id' => $category, ':product_name' => $name, ':discription' => $description, ':price' => $price, ':status' => $status, ':main_picture' => $main_image, ':picture1' => $image_name1, ':picture2' => $image_name2, ':picture3' => $image_name3, ':product_color' => $product_color, ':specification' => $specification, ':capacity' => $capacity));
         }
 
         $pdo = $conn->prepare("SELECT id,name FROM category");
@@ -499,11 +499,11 @@ price,status,main_picture,picture1,picture2,picture3) VALUES (:category_id,:prod
               </div>
               <div class="form-group">
                 <label for="name">Color:</label>
-                <input type="text" class="form-control" id="Color" placeholder="Enter Color" name="color">
+                <input type="text" class="form-control" id="Color" placeholder="Enter Color" name="product_color">
               </div>
               <div class="form-group">
                 <label for="name">Spesification:</label>
-                <input type="text" class="form-control" id="Spesification" placeholder="Enter Spesification" name="spesification">
+                <input type="text" class="form-control" id="Specification" placeholder="Enter Spesification" name="specification">
               </div>
               <div class="form-group">
                 <label for="name">Capacity:</label>
@@ -519,7 +519,7 @@ price,status,main_picture,picture1,picture2,picture3) VALUES (:category_id,:prod
 
 
                       print <<< "here"
-      <option value=$value[id]>$value[name]</option>
+                                <option value=$value[id]>$value[name]</option>
 
       here;
                     } else {

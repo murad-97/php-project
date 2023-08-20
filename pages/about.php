@@ -2,12 +2,10 @@
 <html lang="en">
 
 <head>
-    <title>Zay Shop - About Page</title>
+    <title>Mobile_tech</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="../assets/img/apple-icon.png">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/templatemo.css">
@@ -23,6 +21,11 @@ TemplateMo 559 Zay Shop
 https://templatemo.com/tm-559-zay-shop
 
 -->
+<style>
+    .abeda{
+        background-color: darkcyan !important;
+    }
+</style>
 </head>
 
 <body>
@@ -32,7 +35,7 @@ https://templatemo.com/tm-559-zay-shop
             <div class="w-100 d-flex justify-content-between">
                 <div>
                     <i class="fa fa-envelope mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">Mobile_tech@company.com</a>
                     <i class="fa fa-phone mx-2"></i>
                     <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
                 </div>
@@ -68,24 +71,27 @@ https://templatemo.com/tm-559-zay-shop
     </div>
 
 
-
-    <section class="bg-success py-5">
-        <div class="container">
-            <div class="row align-items-center py-5">
-                <div class="col-md-8 text-white">
-                    <h1>About Us</h1>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                </div>
-                <div class="col-md-4">
-                    <img src="../assets/img/about-hero.svg" alt="About Hero">
+    <div class="abeda">
+        <section class="bg-success py-5" style="background-color: cadetblue;">
+            <div class="container">
+                <div class="row align-items-center py-5">
+                    <div class="col-md-8 text-white">
+                        <h1>About Us</h1>
+                        <p>
+                            Welcome to our website, your ultimate destination for purchasing the latest and best cell phones.
+                            We take pride in offering a unique and exceptional shopping experience to our customers,
+                            as we provide a diverse range of smartphones from top global brands.
+                            Whether you're in search of an advanced phone that caters to your personal and professional needs or you're interested in exploring the latest technologies and features,
+                            we are here to fulfill those requirements.
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="../assets/img/Usability testing-bro.png" alt="About Hero" style="width:500px; hight:200px">
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
     <!-- Close Banner -->
 
     <!-- Start Section -->
@@ -94,8 +100,16 @@ https://templatemo.com/tm-559-zay-shop
             <div class="col-lg-6 m-auto">
                 <h1 class="h1">Our Services</h1>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    Lorem ipsum dolor sit amet.
+                    Our services are characterized by quality and reliability,
+                    as we offer trustworthy warranties on all the products we provide.
+                    With the help of our professional and knowledgeable team,
+                    we strive to offer accurate and comprehensive information about each phone,
+                    enabling you to make an informed and suitable purchasing decision.
+
+                    Shopping with us is easy and convenient,
+                    allowing you to browse through our extensive collection of phones and their accessories
+                    and choose products that suit your lifestyle and needs. We offer secure and diverse payment
+                    options to ensure your complete comfort during the purchasing process.
                 </p>
             </div>
         </div>
@@ -139,8 +153,14 @@ https://templatemo.com/tm-559-zay-shop
                 <div class="col-lg-6 m-auto">
                     <h1 class="h1">Our Brands</h1>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        Lorem ipsum dolor sit amet.
+                        "Explore our exceptional range of products on our website,
+                        where we offer a diverse selection of the finest cell phones and smart devices.
+                        Our products stand out for their quality and high performance,
+                        and we consistently strive to introduce the latest technologies and innovations to enhance your daily life.
+
+                        Smartphones: We present a wide array of smartphones from renowned global brands.
+                        Whether you're in need of an advanced phone for personal use or professional purposes,
+                        you will find with us what fulfills those needs.
                     </p>
                 </div>
                 <div class="col-lg-9 m-auto tempaltemo-carousel">
@@ -159,62 +179,23 @@ https://templatemo.com/tm-559-zay-shop
                                 <!--Slides-->
                                 <div class="carousel-inner product-links-wap" role="listbox">
 
-                                    <!--First slide-->
-                                    <div class="carousel-item active">
+                                     <!--First slide-->
+                                     <div class="carousel-item active">
                                         <div class="row">
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="../assets/img/brand_01.png" alt="Brand Logo"></a>
+                                                <a href="#"><img class="img-fluid brand-img" src="../assets/img/Huawei-logo-768x432.jpg" alt="Brand Logo"></a>
                                             </div>
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="../assets/img/brand_02.png" alt="Brand Logo"></a>
+                                                <a href="#"><img class="img-fluid brand-img" src="../assets/img/vecteezy_3d-logo-of-apple-iphone_20489292_718.png" alt="Brand Logo"></a>
                                             </div>
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="../assets/img/brand_03.png" alt="Brand Logo"></a>
+                                                <a href="#"><img class="img-fluid brand-img" src="../assets/img/Samsung_Logo.svg.png" alt="Brand Logo"></a>
                                             </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="../assets/img/brand_04.png" alt="Brand Logo"></a>
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                     <!--End First slide-->
 
-                                    <!--Second slide-->
-                                    <div class="carousel-item">
-                                        <div class="row">
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="../assets/img/brand_01.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="../assets/img/brand_02.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="../assets/img/brand_03.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="../assets/img/brand_04.png" alt="Brand Logo"></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--End Second slide-->
-
-                                    <!--Third slide-->
-                                    <div class="carousel-item">
-                                        <div class="row">
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="../assets/img/brand_01.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="../assets/img/brand_02.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="../assets/img/brand_03.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="../assets/img/brand_04.png" alt="Brand Logo"></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--End Third slide-->
 
                                 </div>
                                 <!--End Slides-->

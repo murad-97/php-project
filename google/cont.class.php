@@ -53,9 +53,9 @@ class Controller
             $rowCount = $stmt->rowCount();
 
             if ($rowCount > 0) {
-                // $_SESSION['userid'] = $result['id'];
-                // $_SESSION['useridname'] = $result['name'];
-                // $_SESSION['role'] = $result;
+                $_SESSION['userid'] = $result['id'];
+                $_SESSION['useridname'] = $result['name'];
+                $_SESSION['role'] = 0;
                 if(isset($_SESSION["page"])){
 					header("location: $_SESSION[page]");
 				}else{
@@ -71,9 +71,9 @@ class Controller
                 $stmt->execute();
 
                 $lastInsertId = $this->connection->lastInsertId(); //to get the ID of the newly inserted user.
-                // $_SESSION['userid'] = $lastInsertId;
-                // $_SESSION['useridname'] = $name;
-                // $_SESSION['role'] = 0;
+                $_SESSION['userid'] = $lastInsertId;
+                $_SESSION['useridname'] = $name;
+                $_SESSION['role'] = 0;
                 if(isset($_SESSION["page"])){
 					header("location: $_SESSION[page]");
 				}else{

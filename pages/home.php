@@ -152,10 +152,10 @@
             </div>
 
         </div>
-        <div class="row">
+        <div class="row mx-1 justify-content-center">
             <?php while ($category = $categories_result->fetch(PDO::FETCH_ASSOC)) { ?>
-                <div class="col-12 col-md-4 p-5 mt-3">
-                    <a href="pages\shop.php"><img src="../admin_pages/uploads/<?php $category['picture'] ?>" class="rounded-circle img-fluid border"></a>
+                <div class="col-12 col-md-4 p-5 mt-3 ">
+                    <a href="pages\shop.php"><img src="../admin_pages/uploads/<?php echo $category['picture'] ?>" class="img-fluid border" style="height:400px"></a>
                     <h5 class="text-center mt-3 mb-3">
                         <?php echo $category['name']; ?>
                     </h5>
@@ -206,7 +206,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mr-4">
                      
                         <?php foreach ($phoneProducts as $product): ?>
                             <?php if($product['price']>500 && $category['id']==$product['category_id']){?>
@@ -214,7 +214,7 @@
                                 <div class="col-12 col-md-4 mb-4">
                                     <div class="card h-100">
                                         <a href="shop-single.php?id=<?php echo $product['id'] ?>">
-                                            <img src="../admin_pages/uploads/<?php echo $product['main_picture'] ?>" class="card-img-top" alt="...">
+                                            <img src="../admin_pages/uploads/<?php echo $product['main_picture'] ?>" class="card-img-top p-4" alt="...">
                                         </a>
                                         <div class="card-body">
 

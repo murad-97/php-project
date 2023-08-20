@@ -342,58 +342,7 @@ include("connectdata.php");
                 <tbody>
                   <?php
 
-                  /////update
-                  if (isset($_POST["name"])) {
-
-                    $name = $_POST["name"];
-
-                    $category = $_POST["category"];
-
-                    $price = $_POST["price"];
-
-                    $description = $_POST["description"];
-
-                    $status = $_POST["status"];
-                    ///////main_image///////////////////////
-
-                    $main_image = $_FILES["main-image"]["name"];
-                    $main_tmp = $_FILES["main-image"]["tmp_name"];
-                    $main_size = $_FILES["main-image"]["size"];
-
-                    ////////image one//////////////////////
-
-                    $image_name1 = $_FILES["image1"]['name'];
-                    $image_temp1 = $_FILES["image1"]['tmp_name'];
-                    $image_size1 = $_FILES["image1"]['size'];
-
-                    //////////image tow//////////////////
-
-                    $image_name2 = $_FILES["image2"]['name'];
-                    $image_temp2 = $_FILES["image2"]['tmp_name'];
-                    $image_size2 = $_FILES["image2"]['size'];
-
-                    //////////////image three///////////////
-
-                    $image_name3 = $_FILES["image3"]['name'];
-                    $image_temp3 = $_FILES["image3"]['tmp_name'];
-                    $image_size3 = $_FILES["image3"]['size'];
-
-                    // print_r($name);
-                    // print_r($category);
-                    // print_r($price);
-                    // print_r($description);
-
-                    // print_r($main_image);
-                    // print_r($image_name1);
-                    // print_r($image_name2);
-                    // print_r($image_name3);
-
-                    $update = "UPDATE  product SET category_id='$category',product_name='$name',discription='$description',
-price='$price',status='$status',main_picture='$main_image',picture1='$image_name1',picture2='$image_name2',picture3='$image_name3' ";
-
-                    $updatein = $conn->prepare($update);
-                    $pdo = $updatein->execute();
-                  }
+                 
 
                   ////delet product
                   if (isset($_GET['id'])) {
@@ -407,13 +356,13 @@ price='$price',status='$status',main_picture='$main_image',picture1='$image_name
 
 
                   //display product
-                  $pdo = $conn->prepare("SELECT id,product_name, category_id, main_picture,price,status FROM product");
+                  $pdo = $conn->prepare("SELECT * FROM product");
 
                   $pdo->execute();
                   $result = $pdo->fetchAll();
 
                   foreach ($result as $value) {
-                    if ($result > 0) {
+                    if (count($result) > 0) {
                       echo <<< here
 <tr> <th>$value[id]</th>
         <td>$value[product_name]</td>

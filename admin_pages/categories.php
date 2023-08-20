@@ -345,7 +345,7 @@ include("connectdata.php");
           <div class="flex flex-1 h-full p-4  ">
             <div class="container">
               <h2>categories</h2>
-              <p><a href="Addproduct.php" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700 btn btn-primary ">
+              <p><a href="Addcategory.php" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700 btn btn-primary ">
                   Add-category
                 </a></p>
               <table class="table" style="width: 100%;">
@@ -361,37 +361,9 @@ include("connectdata.php");
                 <tbody>
                   <?php
 
-                  /////update
-                  if (isset($_POST["name"])) {
+                  
 
-                    $name_category = $_POST["name"];
-
-
-                    ///////main_image///////////////////////
-
-                    $main_image_category = $_FILES["main-image"]["name"];
-                    $main_tmp = $_FILES["main-image"]["tmp_name"];
-                    $main_size = $_FILES["main-image"]["size"];
-
-
-
-                    // print_r($name);
-                    // print_r($category);
-                    // print_r($price);
-                    // print_r($description);
-
-                    // print_r($main_image);
-                    // print_r($image_name1);
-                    // print_r($image_name2);
-                    // print_r($image_name3);
-
-                    $update = "UPDATE  category SET name='$name_category',picture='$main_image_category'";
-
-                    $updatein = $conn->prepare($update);
-                    $pdo = $updatein->execute();
-                  }
-
-                  ////delet product
+                  ////delet category
                   if (isset($_GET['id'])) {
                     $id = $_GET['id'];
 

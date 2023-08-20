@@ -90,12 +90,10 @@ $_SESSION['product'] = $product;
                     $result->execute();
                     $product = $result->fetch(PDO::FETCH_ASSOC);
                     echo <<<here
-                        <div class="col-lg-5 mt-5 ">
+                  
+                            <div class="col-lg-5 mt-5">
                             <div class="card mb-3">
- 
-                            <img class="card-img rounded-0 img-fluid p-4"style="height: 500px;" src="../assets/img/$product[main_picture]">
-
-        
+                                <img class="card-img img-fluid" src="../assets/img/$product[main_picture]" alt="Card image cap" id="product-detail">
                             </div>
                             <div class="row">
                                 <!--Start Controls-->
@@ -110,51 +108,72 @@ $_SESSION['product'] = $product;
                                 <div id="multi-item-example" class="col-10 carousel slide carousel-multi-item" data-bs-ride="carousel">
                                     <!--Start Slides-->
                                     <div class="carousel-inner product-links-wap" role="listbox">
-                        
+        
                                         <!--First slide-->
                                         <div class="carousel-item active">
                                             <div class="row">
                                                 <div class="col-4">
                                                     <a href="#">
-                                                        <img class="card-img img-fluid" src="../assets/img/$product[picture1]" style="height: 250px;" alt="Product Image 1">
+                                                        <img class="card-img img-fluid"src="../assets/img/$product[picture1]"style="height: 220px;" alt="Product Image 1">
                                                     </a>
                                                 </div>
                                                 <div class="col-4">
                                                     <a href="#">
-                                                        <img class="card-img img-fluid" src="../assets/img/$product[picture2]" style="height: 250px;" alt="Product Image 2">
+                                                        <img class="card-img img-fluid" src="../assets/img/$product[picture2]"style="height: 220px;" alt="Product Image 2">
                                                     </a>
                                                 </div>
                                                 <div class="col-4">
                                                     <a href="#">
-                                                        <img class="card-img img-fluid" src="../assets/img/$product[picture3]" style="height: 250px;" alt="Product Image 3">
+                                                        <img class="card-img img-fluid" src="../assets/img/$product[picture3]"style="height: 220px;" alt="Product Image 3">
                                                     </a>
                                                 </div>
                                             </div>
                                         </div>
                                         <!--/.First slide-->
-                        
+        
                                         <!--Second slide-->
                                         <div class="carousel-item">
                                             <div class="row">
                                                 <div class="col-4">
                                                     <a href="#">
-                                                        <img class="card-img img-fluid" src="../assets/img/$product[picture1]" alt="Product Image 1">
+                                                        <img class="card-img img-fluid" src="../assets/img/$product[main_picture]"style="height: 220px;" alt="Product Image 4">
                                                     </a>
                                                 </div>
                                                 <div class="col-4">
                                                     <a href="#">
-                                                        <img class="card-img img-fluid" src="../assets/img/$product[picture2]" alt="Product Image 2">
+                                                        <img class="card-img img-fluid" src="../assets/img/$product[picture2]"style="height: 220px;" alt="Product Image 5">
                                                     </a>
                                                 </div>
                                                 <div class="col-4">
                                                     <a href="#">
-                                                        <img class="card-img img-fluid" src="../assets/img/$product[picture3]" alt="Product Image 3">
+                                                        <img class="card-img img-fluid" src="../assets/img/$product[picture3]"style="height: 220px;" alt="Product Image 6">
                                                     </a>
                                                 </div>
                                             </div>
                                         </div>
                                         <!--/.Second slide-->
-                        
+        
+                                        <!--Third slide-->
+                                        <div class="carousel-item">
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <a href="#">
+                                                        <img class="card-img img-fluid" src="../assets/img/$product[picture1]"style="height: 220px;" alt="Product Image 7">
+                                                    </a>
+                                                </div>
+                                                <div class="col-4">
+                                                    <a href="#">
+                                                        <img class="card-img img-fluid" src="../assets/img/$product[picture2]"style="height: 220px;" alt="Product Image 8">
+                                                    </a>
+                                                </div>
+                                                <div class="col-4">
+                                                    <a href="#">
+                                                        <img class="card-img img-fluid" src="../assets/img/$product[picture3]"style="height: 220px;" alt="Product Image 9">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/.Third slide-->
                                     </div>
                                     <!--End Slides-->
                                 </div>
@@ -194,7 +213,8 @@ $_SESSION['product'] = $product;
             
                             <h6>Specification:</h6>
                             <ul class="list-unstyled pb-3" style="width:50%;">
-                                $product[product_color] <br />
+                                $product[product_color] <br/>
+                                $product[capacity] <br/>
                                 $product[specification] 
                             </ul>
                         
@@ -211,27 +231,8 @@ $_SESSION['product'] = $product;
                 // }
 
                 // ?>
+           
                 
-
-            
-                <p class="py-2">
-                    <i class="fa fa-star text-warning"></i>
-                    <i class="fa fa-star text-warning"></i>
-                    <i class="fa fa-star text-warning"></i>
-                    <i class="fa fa-star text-warning"></i>
-                    <i class="fa fa-star text-secondary"></i>
-                    <span class="list-inline-item text-dark">Rating 4.8 | 36 Comments</span>
-                </p>
-
-
-                <h6>Description:</h6>
-                <p><?php $product['discription'] ?></p>
-
-                <h6>Specification:</h6>
-                <ul class="list-unstyled pb-3" style="width:50%;">
-                    <?php $product['product_color'] ?> <br />
-                    <?php ?>
-                </ul>
 
 
                 <form action="" method="GET">
