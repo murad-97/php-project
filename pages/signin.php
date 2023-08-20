@@ -111,6 +111,9 @@ if(isset($_POST['login'])){
 						<button onclick="window.location = '<?php echo $login_url; ?>'"type="button" ><i class="fab fa-brands fa-google"></i></button>
 						<button><i class="fab fa-brands fa-facebook-f"></i></button>
 					</div>
+					<div class="submit">
+						<a class="btn dark" href="forgotPassword.php" style="color:black !important;">reset password</a>
+					</div>
 				</form>
 				
 			</div>

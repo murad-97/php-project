@@ -63,22 +63,21 @@ try {
                     <div>
                         <img src="../admin_pages/uploads/$arr[main_picture]"
                             class="img-fluid rounded-3" alt="Shopping item"
-                            style="width: 65px;">
+                            ">
                     </div>
                     <div class="ms-3">
                         <h5>$arr[product_name]</h5>
-                        <p class="small mb-0">$arr[discription]</p>
+                        <p class="small mb-0" style="font-size: 15px !important";>$arr[discription]</p>
                     </div>
                 </div>
                 <div class="d-flex flex-row align-items-center">
-                    <div style="width: 50px;">
+                    <div style="width: 20px;">
                         <h5 class="fw-normal mb-0">$value</h5>
                     </div>
                     <div style="width: 80px;">
                         <h5 class="mb-0">$$arr[price]</h5>
                     </div>
-                    <a href="#!" style="color: #cecece;"><i
-                            class="fas fa-trash-alt"></i></a>
+                    
                 </div>
             </div>
         </div>

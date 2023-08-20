@@ -126,6 +126,7 @@ a:hover {
 
 .product header,
 .product .content {
+  overflow: hidden;
   background-color: #fff;
   border: 1px solid #ccc;
   border-style: none none solid none;
