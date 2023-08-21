@@ -31,9 +31,9 @@ body {
     border-radius: 5px 0 0 5px;
 }
 
-.bg-c-lite-green {
-        background: -webkit-gradient(linear, left top, right top, from(#59AB6E), to(#59AB6E));
-    background: linear-gradient(to right, #59AB6E, #59AB6E);
+.HELLO {
+        background: -webkit-gradient(linear, left top, right top, from(#59AB6E), to(#59AB6E)) !important;
+    background: linear-gradient(to right, #59AB6E, #59AB6E) !important;
 }
 
 .user-profile {

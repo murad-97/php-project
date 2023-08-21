@@ -45,7 +45,7 @@ $result = $pdo->fetchAll();
           <div class=" col-sm-12 row-12">
             <div class="card user-card-full ">
               <div class="row m-l-0 m-r-0">
-                <div class="col-sm-12 bg-c-lite-green user-profile">
+                <div class="col-sm-12   user-profile" style="background-color:#d7e5d3" >
                   <div class="card-block text-center text-white">
                     <div class="m-b-25">
                       <img src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius" alt="User-Profile-Image">

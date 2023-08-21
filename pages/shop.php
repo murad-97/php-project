@@ -85,9 +85,15 @@ https://templatemo.com/tm-559-zay-shop
 
     <!-- Start Content -->
     <div class="container py-5">
-        <div class="row">
+        <div class="row" style="justify-content:flex-end">
             <!-- select the category from the category  -->
-            <div class="col-lg-3">
+            <div class="col-lg-3" style="position: fixed;
+                            flex: 0 0 auto;
+                            width: 25%;
+                            top: 112p;
+                            left: 35px;
+                            x: ;
+                            z-index: 30;">
                 <div class="list-unstyled templatemo-accordion">
                     <div class="pb-3">
                         <h2 class="h2 pb-2 pt-4">Categories</h2>
@@ -109,7 +115,7 @@ https://templatemo.com/tm-559-zay-shop
             </div>
 
             <div class="col-lg-9">
-                <div class="row">
+                <div class="row" >
 
                     <?php // Check if a specific category is selected
                     if (isset($_GET['category_id'])) {
@@ -128,7 +134,7 @@ https://templatemo.com/tm-559-zay-shop
                     ?>
 
                 </div>
-                <div class="row">
+                <div class="row" style="justify-content: flex-end; !important" >
                     
                     <?php
                     //  ******** search *********//
@@ -220,7 +226,7 @@ https://templatemo.com/tm-559-zay-shop
                                                     </div>
                                                 </div>
                                                 <div class="card-body">
-                                                    <a href="shop-single.php?id=$product[id]" class="h3 text-decoration-none product_name"><strong class="">$product[product_name]</strong></a>
+                                                    <a href="shop-single.php?id=$product[id]" class="h3 text-decoration-none product_name"><strong style="overflow:hidden">$product[product_name]</strong></a>
                                                     <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
                                                         <p class="description">$product[discription]</p>
                                                     </ul>
