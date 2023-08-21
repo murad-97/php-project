@@ -149,6 +149,7 @@ https://templatemo.com/tm-559-zay-shop
                             <option value="pink" style="background-color:pink;color:white;">Pink</option>
                             <option value="black" style="background-color:black;color:white;">Black</option>
                             <option value="grey" style="background-color:grey;color:white;">Grey</option>
+                            <option value="green" style="background-color:green;color:white;">Green</option>
                         </select>
                         <input type="submit" value="Filter" class="btn btn-warning px-4 py-2 mx-3">
                     </form>

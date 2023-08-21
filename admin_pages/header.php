@@ -100,7 +100,7 @@ https://templatemo.com/tm-559-zay-shop
                         if (isset($_SESSION['role'])) {
 
                             if ($role == 1) {
-                                echo"hi";
+                             
                                 echo <<<here
 
                                        <a class="nav-icon position-relative text-decoration-none" href="../admin_pages/Admin.php">
