@@ -121,14 +121,12 @@ here;
                                                         placeholder="Cardholder's Name" />
                                                     <label class="form-label" for="typeName">Cardholder's Name</label>
                                                 </div>
-
                                                 <div class="form-outline form-white mb-4">
                                                     <input name="card-number" type="text" id="typeText"
                                                         class="form-control form-control-lg" siez="17"
                                                         placeholder="1234 5678 9012 3457" maxlength="14" required />
                                                     <label class="form-label" for="typeText">Card Number</label>
                                                 </div>
-
                                                 <div class="row mb-4">
                                                     <div class="col-md-6">
                                                         <div class="form-outline form-white">
@@ -149,11 +147,7 @@ here;
                                                         </div>
                                                     </div>
                                                 </div>
-
-
-
                                                 <hr class="my-4">
-
                                                 <div class="d-flex justify-content-between">
                                                     <p class="mb-2">Subtotal</p>
                                                     <p class="mb-2">$
@@ -163,7 +157,6 @@ here;
                                                             ?>
                                                     </p>
                                                 </div>
-
                                                 <div class="d-flex justify-content-between">
                                                     <p class="mb-2">Shipping</p>
                                                     <p class="mb-2">$
@@ -173,7 +166,6 @@ here;
                                                             ?>.00
                                                     </p>
                                                 </div>
-
                                                 <div class="d-flex justify-content-between mb-4">
                                                     <p class="mb-2">Total(Incl. taxes)</p>
                                                     <p class="mb-2">$

@@ -16,7 +16,6 @@ function changeTotal() {
   var price = 0;
   $(".full-price").each(function (index) {
     price += parseFloat(parseInt($(".full-price").eq(index).html()));
-
   });
 
   price = Math.round(price * 100) / 100;

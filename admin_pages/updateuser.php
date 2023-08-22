@@ -3,6 +3,9 @@
 include("connectdata.php");
 include_once("header.php");
 
+
+
+
 if (isset($_GET['id'])) {
   $id = $_GET['id'];
 
@@ -13,14 +16,17 @@ if (isset($_GET['id'])) {
 
   $row =  $result->fetch();
 
-
-
+  $id = $row['id'];
   $name = $row['name'];
 
   $address = $row['address'];
 
   $phone = $row['phone'];
 }
+
+
+
+
 ?>
 
 
@@ -44,42 +50,36 @@ if (isset($_GET['id'])) {
 </head>
 
 <body>
-  <?php
 
- 
-
-
-
-  ?>
   <!--  -->
-  <section class="row-12 col-sm-12 ">
-    <div class="col-sm-12 bg-c-lite-green user-profile">
-      <div class="card-block text-center text-white">
+  <section class="row-12 col-sm-10 m-auto pt-5 pb-5 ">
+    <div class="col-sm-12  user-profile pt-5 pb-5" style="background-color:#d7e5d3">
+      <div class=" card-block text-center text-white">
         <div class="m-b-25">
           <img src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius" alt="User-Profile-Image">
         </div>
-        <h6 class="f-w-1000"><?php print_r($row['name']) ?></h6>
-        
+        <h6 class="f-w-1000"></h6>
+
         <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
       </div>
     </div>
     <div class="form col-8  m-auto">
-      <form action="profile.php" method="post">
+      <form action="updateuserpro.php?id=<?php echo $id  ?>" method="post">
         <div class="form-group w-100">
           <label for="price">name:</label>
-          <input type="text" class="form-control  " id="name" placeholder="name" name="name" value="<?php echo htmlspecialchars($name) ?>">
+          <input type="text" class="form-control  " id="name" placeholder="name" name="name" value="<?php echo $name ?>">
         </div>
         <div class="form-group w-full">
           <label for="phone">phone:</label>
-          <input type="phone" class="form-control" id="phone" value="<?php echo htmlspecialchars($phone) ?>" placeholder="phone number" name="phone" size="10" required>
+          <input type="phone" class="form-control" id="phone" value="<?php echo $phone ?>" placeholder="phone number" name="phone" size="10" required>
         </div>
 
         <div class="form-group w-full">
           <label for="status">address:</label>
-          <input type="text" class="form-control" id="address" value="<?php echo htmlspecialchars($address) ?>" placeholder="address" name="address">
+          <input type="text" class="form-control" id="address" value="<?php echo $address ?>" placeholder="address" name="address">
         </div>
 
-        <input type="submit" class="btn btn-primary col-4" value="Save">
+        <input type="submit" class="btn btn-success col-4" value="Save">
 
       </form>
     </div>
@@ -88,7 +88,7 @@ if (isset($_GET['id'])) {
   </section>
   <!--  -->
 
-  
+
   </div>
   </div>
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->

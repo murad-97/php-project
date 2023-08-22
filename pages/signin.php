@@ -41,6 +41,10 @@ if(isset($_POST['login'])){
                 $_SESSION['userid'] = $result['id'];
                 $_SESSION['useridname'] = $result['name'];
 				$_SESSION['role']=$result['role'];
+				if ($result['role']==1) {
+					header("location: ../admin_pages/Admin.php");
+					exit();
+				}
                 if(isset($_SESSION["page"])){
 					header("location: $_SESSION[page]");
 				}else{
@@ -102,6 +106,9 @@ if(isset($_POST['login'])){
 					<div class="passwd">
 						<input type="password" name="lopass">
 						<label>Password</label>
+						<div style=" text-align: start; ">
+							<a class="btn dark" href="forgotPassword.php" style="color:black !important; text-decoration: underline; ">Reset password?</a>
+						</div>
 					</div>
 					<div class="submit">
 						<button class="dark" name="login">Login</button>
@@ -111,9 +118,7 @@ if(isset($_POST['login'])){
 						<button onclick="window.location = '<?php echo $login_url; ?>'"type="button" ><i class="fab fa-brands fa-google"></i></button>
 						<button><i class="fab fa-brands fa-facebook-f"></i></button>
 					</div>
-					<div class="submit">
-						<a class="btn dark" href="forgotPassword.php" style="color:black !important;">reset password</a>
-					</div>
+					
 				</form>
 				
 			</div>

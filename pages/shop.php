@@ -2,7 +2,7 @@
 include('conn.php');
 include('header.php');
 if (isset($_SESSION["pro"])) {
-   unset($_SESSION["pro"]);
+    unset($_SESSION["pro"]);
 }
 
 $result = $conn->prepare("SELECT * FROM product");
@@ -19,14 +19,14 @@ $products = $result->fetchAll();
 
 
 
-    if(!isset($_SESSION["product"])){
-        $_SESSION["product"] = array();
-    }
-    if(isset($_GET["id"])){
-    
-    array_push($_SESSION["product"],$_GET["id"] );
-    }
-    // $page =Array ($_GET['page']);
+if (!isset($_SESSION["product"])) {
+    $_SESSION["product"] = array();
+}
+if (isset($_GET["id"])) {
+
+    array_push($_SESSION["product"], $_GET["id"]);
+}
+// $page =Array ($_GET['page']);
 
 
 ?>
@@ -40,7 +40,7 @@ $products = $result->fetchAll();
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-    
+
 
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/templatemo.css">
@@ -59,9 +59,9 @@ https://templatemo.com/tm-559-zay-shop
 </head>
 
 <body>
-    
 
-     
+
+
 
 
     <!-- Modal -->
@@ -85,14 +85,15 @@ https://templatemo.com/tm-559-zay-shop
 
     <!-- Start Content -->
     <div class="container py-5">
-        <div class="row" style="justify-content:flex-end">
+        <div class="row" style="justify-content:center">
+        <!-- <div class="row" style="justify-content:flex-end"> -->
             <!-- select the category from the category  -->
             <div class="col-lg-3" style="position: fixed;
                             flex: 0 0 auto;
                             width: 25%;
                             top: 112p;
                             left: 35px;
-                            x: ;
+                            
                             z-index: 30;">
                 <div class="list-unstyled templatemo-accordion">
                     <div class="pb-3">
@@ -106,7 +107,7 @@ https://templatemo.com/tm-559-zay-shop
 
                         foreach ($category as $value) {
                             echo <<<here
-                            <div><a class="text-decoration-none" href="shop.php?category_id=$value[id]">$value[name]</a></div>
+                            <div><a class="text-decoration-none" href="shop.php?category_id=$value[id]&page=1">$value[name]</a></div>
                             here;
                         }
                         ?>
@@ -115,7 +116,7 @@ https://templatemo.com/tm-559-zay-shop
             </div>
 
             <div class="col-lg-9">
-                <div class="row" >
+                <div class="row-4">
 
                     <?php // Check if a specific category is selected
                     if (isset($_GET['category_id'])) {
@@ -134,8 +135,9 @@ https://templatemo.com/tm-559-zay-shop
                     ?>
 
                 </div>
-                <div class="row" style="justify-content: flex-end; !important" >
-                    
+                <div class="row " style="justify-content: flex-end; ">
+                <div class="row " style="justify-content: flex-end; ">
+
                     <?php
                     //  ******** search *********//
                     $searchQuery = isset($_GET['search']) ? $_GET['search'] : '';
@@ -145,9 +147,9 @@ https://templatemo.com/tm-559-zay-shop
                         <button type="submit" class="btn btn-outline-success">Search</button>
                     </form>
 
-                    
+
                     <!-- ********* color********* -->
-                    <form method="get" action="">
+                    <form method="get" action="./shop.php?page=1">
                         <label for="color">Select Color:</label>
                         <select name="color" id="color" class="p-2 rounded mb-4">
                             <option value="white">White</option>
@@ -159,64 +161,50 @@ https://templatemo.com/tm-559-zay-shop
                         </select>
                         <input type="submit" value="Filter" class="btn btn-warning px-4 py-2 mx-3">
                     </form>
+                    <div class="row">
                     <?php
                     if (isset($_GET['color'])) {
                         if (count($products) > 0) {
+                           
                             $selectedColor = $_GET['color'];
-                            $result = $conn->prepare("SELECT * FROM product WHERE product_color = :color");
+                            $sql = "SELECT * FROM product WHERE product_color = :color";
+                            $result = $conn->prepare($sql);
                             $result->bindParam(':color', $selectedColor);
                             $result->execute();
                             $products = $result->fetchAll(PDO::FETCH_ASSOC);
-                            
-                            // ********* pagenation *********//
 
+
+                            // Pagination for filtered products
                             $num_product = count($products);
-                            $num_every_page = 3;
+                            $num_every_page = 9;
                             $totalPages = ceil($num_product / $num_every_page);
+
                             if (isset($_GET['page'])) {
                                 $page = $_GET['page'];
                             } else {
                                 $page = 1;
                             }
+
                             $startinglimit = ($page - 1) * $num_every_page;
-                            $result = $conn->prepare("SELECT * from product LIMIT " . $startinglimit .
-                                "," . $num_every_page);
 
+                            // Construct the SQL query for pagination separately
+                            $pagination_sql = "SELECT * FROM product WHERE product_color = :color LIMIT :start, :limit";
+                            $pagination_result = $conn->prepare($pagination_sql);
+                            $pagination_result->bindParam(':color', $selectedColor);
+                            $pagination_result->bindValue(':start', $startinglimit, PDO::PARAM_INT);
+                            $pagination_result->bindValue(':limit', $num_every_page, PDO::PARAM_INT);
+                            $pagination_result->execute();
+                            $products = $pagination_result->fetchAll(PDO::FETCH_ASSOC);
 
-                            //  // ********* Pagination *********//
-                            // $num_every_page = 3;
-                            // $totalProducts = count($products);
-                            // $totalPages = ceil($totalProducts / $num_every_page);
-
-                            // if (isset($_GET['page'])) {
-                            //     $page = $_GET['page'];
-                            // } else {
-                            //     $page = 1;
-                            // }
-
-                            // $startinglimit = ($page - 1) * $num_every_page;
-
-                            // if (isset($_GET['category_id'])) {
-                            //     $sql .= " LIMIT " . $startinglimit . "," . $num_every_page;
-                            //     $result = $conn->prepare($sql);
-                            //     $result->bindParam(':category_id', $selectedCategory, PDO::PARAM_INT);
-                            // } else {
-                            //     $sql .= " LIMIT " . $startinglimit . "," . $num_every_page;
-                            //     $result = $conn->prepare($sql);
-                            // }
-
-                            // // Execute the paginated query and fetch products for the current page
-                            // $result->execute();
-                            // $products = $result->fetchAll(PDO::FETCH_ASSOC);    
-        
                             //********* end pagenation *************//
 
                             foreach ($products as $product) {
                                 echo <<<here
-                                        <div class="col-md-4">
-                                            <div class="card mb-4 product-wap rounded-0">
+                                         
+                                        <div class="col-md-3">
+                                            <div class="card mb-3 product-wap rounded-0">
                                                 <div class="card rounded-0">
-                                                <img class="card-img rounded-0 img-fluid p-4"style="height: 350px;" src="../assets/img/$product[main_picture]">
+                                                <img class="card-img rounded-0 img-fluid p-4" src="../assets/img/$product[main_picture]">
                                                 <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                                         <ul class="list-unstyled">
                                                             <li><a class="btn btn-success text-white" href="shop-single.php?id=$product[id]"><i class="far fa-heart"></i></a></li>
@@ -226,24 +214,23 @@ https://templatemo.com/tm-559-zay-shop
                                                     </div>
                                                 </div>
                                                 <div class="card-body">
-                                                    <a href="shop-single.php?id=$product[id]" class="h3 text-decoration-none product_name"><strong style="overflow:hidden">$product[product_name]</strong></a>
-                                                    <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                                        <p class="description">$product[discription]</p>
-                                                    </ul>
-                                                    <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                                        <li>
-                                                            <i class="text-warning fa fa-star"></i>
-                                                            <i class="text-warning fa fa-star"></i>
-                                                            <i class="text-warning fa fa-star"></i>
-                                                            <i class="text-muted fa fa-star"></i>
-                                                            <i class="text-muted fa fa-star"></i>
-                                                        </li>
-                                                    </ul>
-                                                    <p class="text-center mb-0">$$product[price]</p>
+                                                <a href="shop-single.php?id=$product[id]" class="h3 text-decoration-none product_name"><strong style="display:block;text-align:center; overflow:hidden; height:25px ">$product[product_name]</strong></a>
+                                               
+                                                <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                                    <li>
+                                                        <i class="text-warning fa fa-star"></i>
+                                                        <i class="text-warning fa fa-star"></i>
+                                                        <i class="text-warning fa fa-star"></i>
+                                                        <i class="text-muted fa fa-star"></i>
+                                                        <i class="text-muted fa fa-star"></i>
+                                                    </li>
+                                                </ul>
+                                                <p class="text-center mb-0">$$product[price]</p>
 
-                                                </div>
+                                            </div>
                                             </div>
                                         </div>
+                                         
                                         here;
                             }
                         } else {
@@ -257,29 +244,37 @@ https://templatemo.com/tm-559-zay-shop
                             $result->bindValue(':searchQuery', '%' . $searchQuery . '%', PDO::PARAM_STR);
                             $result->execute();
                             $products = $result->fetchAll();
-                            
-                            // ********* pagenation *********//
+
+                            // ********* Pagination *********//
 
                             $num_product = count($products);
-                            $num_every_page = 3;
+                            $num_every_page = 9;
                             $totalPages = ceil($num_product / $num_every_page);
+
                             if (isset($_GET['page'])) {
                                 $page = $_GET['page'];
                             } else {
                                 $page = 1;
                             }
-                            $startinglimit = ($page - 1) * $num_every_page;
-                            $result = $conn->prepare("SELECT * from product LIMIT " . $startinglimit .
-                                "," . $num_every_page);
 
+                            $startinglimit = ($page - 1) * $num_every_page;
+
+                            // Construct the SQL query for pagination separately
+                            $pagination_sql = "SELECT * FROM product WHERE product_name LIKE :searchQuery OR discription LIKE :searchQuery LIMIT :start, :limit";
+                            $pagination_result = $conn->prepare($pagination_sql);
+                            $pagination_result->bindValue(':searchQuery', '%' . $searchQuery . '%', PDO::PARAM_STR);
+                            $pagination_result->bindValue(':start', $startinglimit, PDO::PARAM_INT);
+                            $pagination_result->bindValue(':limit', $num_every_page, PDO::PARAM_INT);
+                            $pagination_result->execute();
+                            $products = $pagination_result->fetchAll(PDO::FETCH_ASSOC);
                             //********* end pagenation *************//
 
                             foreach ($products as $product) {
                                 echo <<<here
-                                        <div class="col-md-4">
-                                            <div class="card mb-4 product-wap rounded-0">
+                                        <div class="col-md-3">
+                                            <div class="card mb-3 product-wap rounded-0">
                                                 <div class="card rounded-0">
-                                                <img class="card-img rounded-0 img-fluid p-4"style="height: 350px;" src="../assets/img/$product[main_picture]">
+                                                <img class="card-img rounded-0 img-fluid p-4" src="../assets/img/$product[main_picture]">
                                                 <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                                         <ul class="list-unstyled">
                                                             <li><a class="btn btn-success text-white" href="shop-single.php?id=$product[id]"><i class="far fa-heart"></i></a></li>
@@ -289,22 +284,20 @@ https://templatemo.com/tm-559-zay-shop
                                                     </div>
                                                 </div>
                                                 <div class="card-body">
-                                                    <a href="shop-single.php?id=$product[id]" class="h3 text-decoration-none product_name"><strong class="">$product[product_name]</strong></a>
-                                                    <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                                        <p class="description">$product[discription]</p>
-                                                    </ul>
-                                                    <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                                        <li>
-                                                            <i class="text-warning fa fa-star"></i>
-                                                            <i class="text-warning fa fa-star"></i>
-                                                            <i class="text-warning fa fa-star"></i>
-                                                            <i class="text-muted fa fa-star"></i>
-                                                            <i class="text-muted fa fa-star"></i>
-                                                        </li>
-                                                    </ul>
-                                                    <p class="text-center mb-0">$$product[price]</p>
+                                                <a href="shop-single.php?id=$product[id]" class="h3 text-decoration-none product_name"><strong style="display:block;text-align:center; overflow:hidden; height:25px ">$product[product_name]</strong></a>
+                                               
+                                                <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                                    <li>
+                                                        <i class="text-warning fa fa-star"></i>
+                                                        <i class="text-warning fa fa-star"></i>
+                                                        <i class="text-warning fa fa-star"></i>
+                                                        <i class="text-muted fa fa-star"></i>
+                                                        <i class="text-muted fa fa-star"></i>
+                                                    </li>
+                                                </ul>
+                                                <p class="text-center mb-0">$$product[price]</p>
 
-                                                </div>
+                                            </div>
                                             </div>
                                         </div>
                                         here;
@@ -315,7 +308,7 @@ https://templatemo.com/tm-559-zay-shop
                     } elseif (count($products) > 0) {
 
                         // ********* Pagination *********//
-                        $num_every_page = 3;
+                        $num_every_page =9;
                         $totalProducts = count($products);
                         $totalPages = ceil($totalProducts / $num_every_page);
 
@@ -331,21 +324,26 @@ https://templatemo.com/tm-559-zay-shop
                             $sql .= " LIMIT " . $startinglimit . "," . $num_every_page;
                             $result = $conn->prepare($sql);
                             $result->bindParam(':category_id', $selectedCategory, PDO::PARAM_INT);
-                        } else {
+                            $result->execute();
+                            $products = $result->fetchAll(PDO::FETCH_ASSOC);
+                        }
+
+                      else {
                             $sql .= " LIMIT " . $startinglimit . "," . $num_every_page;
                             $result = $conn->prepare($sql);
+                            $result->execute();
+                            $products = $result->fetchAll(PDO::FETCH_ASSOC);
                         }
 
                         // Execute the paginated query and fetch products for the current page
-                        $result->execute();
-                        $products = $result->fetchAll(PDO::FETCH_ASSOC);
+                      
 
                         foreach ($products as $product) {
                             echo <<<here
-                                    <div class="col-md-4">
-                                        <div class="card mb-4 product-wap rounded-0">
+                                    <div class="col-md-3">
+                                        <div class="card mb-3 product-wap rounded-0">
                                             <div class="card rounded-0">
-                                                <img class="card-img rounded-0 img-fluid p-4"style="height: 350px;" src="../assets/img/$product[main_picture]">
+                                                <img class="card-img rounded-0 img-fluid p-4"  src="../assets/img/$product[main_picture]">
                                                 <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                                     <ul class="list-unstyled">
                                                         <li><a class="btn btn-success text-white" href="shop-single.php?id=$product[id]"><i class="far fa-heart"></i></a></li>
@@ -355,10 +353,8 @@ https://templatemo.com/tm-559-zay-shop
                                                 </div>
                                             </div>
                                             <div class="card-body">
-                                                <a href="shop-single.php?id=$product[id]" class="h3 text-decoration-none product_name"><strong class="">$product[product_name]</strong></a>
-                                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                                    <p class="description">$product[discription]</p>
-                                                </ul>
+                                                <a href="shop-single.php?id=$product[id]" class="h3 text-decoration-none product_name"><strong style="display:block;text-align:center; overflow:hidden; height:25px ">$product[product_name]</strong></a>
+                                               
                                                 <ul class="list-unstyled d-flex justify-content-center mb-1">
                                                     <li>
                                                         <i class="text-warning fa fa-star"></i>
@@ -379,31 +375,104 @@ https://templatemo.com/tm-559-zay-shop
                         echo `<h2 class="justify-content-center">No products found</h2>`;
                     }
                     ?>
+                    <h5 class=pt-3 style=color:gray;>page:</h5>
+                    <?php
 
+                    echo <<< here
+
+                              
+                  
+
+                    here;
+
+                    for ($btn = 1; $btn <= $totalPages; $btn++) {
+                        // $selectedCategory = $_GET['category_id'];
+
+
+
+
+
+                        if (isset($_GET['category_id'])) {
+
+                            echo <<<here
+                            
+                              <div class="col-1" style="position:relative;bottom:0px;left:0; ">
+                            <div class="row" >
+                                <a class=" page-link rounded-0  shadow-sm text-dark" href="shop.php?page=$btn&category_id=$selectedCategory">$btn</a>
+                               </div>
+                              </div>
+                               
+                    here;
+                        } elseif (isset($_GET["search"])) {
+                            echo <<<here
+                               
+                              <div class="col-1" style="position:relative;bottom:0px;left:0; ">
+                            <div class="row" >
+                           
+       
+            <a class="page-link rounded-0 mr-3 shadow-sm text-dark" href="shop.php?page=$btn&search=$_GET[search]">$btn</a>
+         </div >
+                            </div >
+        here;
+                        } elseif (isset($_GET["color"])) {
+                            echo <<<here
+                                 
+                              <div class="col-1" style="position:relative;bottom:0px;left:0; ">
+                            <div class="row" >
+       
+            <a class="page-link rounded-0 mr-3 shadow-sm text-dark" href="shop.php?page=$btn&color=$_GET[color]">$btn</a>
+         </div>
+                              </div>
+        here;
+                        } else {
+                            echo <<<here
+                              
+                              <div class="col-1" style="position:relative;bottom:0px;left:0; ">
+                            <div class="row" >
+                                <a class=" m-0 page-link rounded-0  shadow-sm text-dark" href="shop.php?page=$btn">$btn</a>
+    
+                                 </div>
+                              </div>
+
+                    here;
+                        }
+                    }
+
+
+
+
+                    ?>
+</div>
+
+
+
+
+                    <!-- 
                             <div class="row">
     <ul class="pagination pagination-lg justify-content-end col-10">
         <h5 class="pt-3" style="color: gray;">Pages:</h5>
         <?php
-        for ($btn = 1; $btn <= $totalPages; $btn++) {
-            // $selectedCategory = $_GET['category_id'];
+        // for ($btn = 1; $btn <= $totalPages; $btn++) {
+        //     // $selectedCategory = $_GET['category_id'];
 
-            echo <<<here
-        <li class="page-item">
-            <a class="page-link rounded-0 mr-3 shadow-sm text-dark" href="shop.php?page=$btn">$btn</a>
-        </li>
-        here;
-        }
-        ?>
-    </ul>
-</div>
-
-                        </ul>
-                    </div>
-
+        //     echo <<<here
+        // <li class="page-item">
+        //     <a class="page-link rounded-0 mr-3 shadow-sm text-dark" href="shop.php?page=$btn">$btn</a>
+        // </li>
+        // here;
+        // }
+        ?> -->
+                    </ul>
                 </div>
+                </div>
+
+                </ul>
             </div>
 
         </div>
+    </div>
+
+    </div>
     </div>
     <!-- End Content -->
 

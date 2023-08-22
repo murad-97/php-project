@@ -331,7 +331,7 @@ include("connectdata.php");
 
 
 
-          if ($main_size_category > 500000) {
+          if ($main_size_category > 1000000) {
 
             $em = "Sorry , your file is too large.";
             header("location:product.php?$em");

@@ -95,10 +95,13 @@ if (isset($_POST['Register'])) {
 	<link type="text/css" rel="stylesheet" href="css/styleok.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<link rel="stylesheet" href="../assets/css/signup.css">
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+		integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"
+		integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
 </head>
 
 
@@ -115,52 +118,65 @@ if (isset($_POST['Register'])) {
 				<button><a href="signin.php">Login</a></button>
 			</div>
 			<div class="wrapper">
-				<form id="login" class="reg" tabindex="502" method="post" style="padding-top: 5%;" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+				<form id="login" class="reg" tabindex="502" method="post" style="padding-top: 5%;"
+					action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
 					<h3>Register</h3>
 					<?php
 					if (isset($_GET['error'])) {
 						if ($_GET['error'] == "emptyfieldes") {
 							echo "<span> Fill all the fields! </span>";
-						}else if ($_GET['error'] == "invalidemailname") {
+						} else if ($_GET['error'] == "invalidemailname") {
 							echo "<span> invalid email and name! </span>";
-						}else if ($_GET['error'] == urldecode("user taken")) {
+						} else if ($_GET['error'] == urldecode("user taken")) {
 							echo "<span>User taken!</span>";
-						}else if ($_GET['error'] == "success") {
+						} else if ($_GET['error'] == "success") {
 							echo "<span style='color:green; margin-bottom: 20px;'>Registration successful! You can now log in.</span>";
 							echo '<br>';
 						}
-					} 
+					}
 					?>
 					<div class="name">
 						<input type="text" name="name">
 						<label>Full Name</label>
-						<span><?php if (isset($_GET['error']) && $_GET['error'] === 'invalidname') {
-            echo "<span> Name should only contain letters and digits (no spaces or special characters). </span>";
-        } ?></span>
+						<span>
+							<?php if (isset($_GET['error']) && $_GET['error'] === 'invalidname') {
+								echo "<span> Name should only contain letters and digits (no spaces or special characters). </span>";
+							} ?>
+						</span>
 					</div>
 					<div class="mail">
 						<input type="email" name="email">
 						<label>Email</label>
-						<span><?php if (isset($_GET['error'])) {
-						if ($_GET['error'] == "invalidemail") {
-							echo "<span>Invalid email format! Please enter a valid email address! </span>";
-						}} ?></span>
+						<span>
+							<?php if (isset($_GET['error'])) {
+								if ($_GET['error'] == "invalidemail") {
+									echo "<span>Invalid email format! Please enter a valid email address  </span>";
+									echo "<span>example@gmail.com </span>";
+								}
+							} ?>
+						</span>
 					</div>
 					<div class="passwd">
 						<input type="password" name="pass">
 						<label>Password</label>
-						<span><?php if (isset($_GET['error'])) {
-						if ($_GET['error'] == "invalidpass") {
-							echo "<span>Password must contain at least one uppercase letter, one lowercase letter, one digit, one special character, and be at least 8 characters long. </span>";
-						}} ?></span>
+						<span>
+							<?php if (isset($_GET['error'])) {
+								if ($_GET['error'] == "invalidpass") {
+									echo "<span>Password must contain at least one uppercase letter, one lowercase letter, one digit, one special character, and be at least 8 characters long. </span>";
+								}
+							} ?>
+						</span>
 					</div>
 					<div class="uid">
 						<input type="password" name="conpass">
 						<label>Confirm Password</label>
-						<span><?php if (isset($_GET['error'])) {
-						if ($_GET['error'] == "checkpassword") {
-							echo "<span>Passwords do not match! </span>";
-						}} ?></span>
+						<span>
+							<?php if (isset($_GET['error'])) {
+								if ($_GET['error'] == "checkpassword") {
+									echo "<span>Passwords do not match! </span>";
+								}
+							} ?>
+						</span>
 
 					</div>
 					<div class="submit">
@@ -168,7 +184,8 @@ if (isset($_POST['Register'])) {
 					</div>
 					<div class="social">
 						<p>Register by</p>
-						<button onclick="window.location = '<?php echo $login_url; ?>'"type="button"><i class="fab fa-brands fa-google"></i></button>
+						<button onclick="window.location = '<?php echo $login_url; ?>'" type="button"><i
+								class="fab fa-brands fa-google"></i></button>
 						<button><i class="fab fa-brands fa-facebook-f"></i></button>
 					</div>
 				</form>

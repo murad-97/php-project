@@ -21,11 +21,11 @@ TemplateMo 559 Zay Shop
 https://templatemo.com/tm-559-zay-shop
 
 -->
-<style>
-    .abeda{
-        background-color: darkcyan !important;
-    }
-</style>
+    <style>
+        .abeda {
+            background-color: darkcyan !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -72,10 +72,10 @@ https://templatemo.com/tm-559-zay-shop
 
 
     <div class="abeda">
-        <section class="bg-success py-5" style="background-color: cadetblue;">
+        <section class="  py-5 " style="background-color: #e8e8eb;color: black;">
             <div class="container">
                 <div class="row align-items-center py-5">
-                    <div class="col-md-8 text-white">
+                    <div class="col-md-8 text-black">
                         <h1>About Us</h1>
                         <p>
                             Welcome to our website, your ultimate destination for purchasing the latest and best cell phones.
@@ -97,7 +97,7 @@ https://templatemo.com/tm-559-zay-shop
     <!-- Start Section -->
     <section class="container py-5">
         <div class="row text-center pt-5 pb-3">
-            <div class="col-lg-6 m-auto">
+            <div class="col-lg-10 m-auto pb-5">
                 <h1 class="h1">Our Services</h1>
                 <p>
                     Our services are characterized by quality and reliability,
@@ -106,10 +106,6 @@ https://templatemo.com/tm-559-zay-shop
                     we strive to offer accurate and comprehensive information about each phone,
                     enabling you to make an informed and suitable purchasing decision.
 
-                    Shopping with us is easy and convenient,
-                    allowing you to browse through our extensive collection of phones and their accessories
-                    and choose products that suit your lifestyle and needs. We offer secure and diverse payment
-                    options to ensure your complete comfort during the purchasing process.
                 </p>
             </div>
         </div>
@@ -150,18 +146,9 @@ https://templatemo.com/tm-559-zay-shop
     <section class="bg-light py-5">
         <div class="container my-4">
             <div class="row text-center py-3">
-                <div class="col-lg-6 m-auto">
+                <div class="col-lg-10 m-auto pb-5">
                     <h1 class="h1">Our Brands</h1>
-                    <p>
-                        "Explore our exceptional range of products on our website,
-                        where we offer a diverse selection of the finest cell phones and smart devices.
-                        Our products stand out for their quality and high performance,
-                        and we consistently strive to introduce the latest technologies and innovations to enhance your daily life.
-
-                        Smartphones: We present a wide array of smartphones from renowned global brands.
-                        Whether you're in need of an advanced phone for personal use or professional purposes,
-                        you will find with us what fulfills those needs.
-                    </p>
+                   
                 </div>
                 <div class="col-lg-9 m-auto tempaltemo-carousel">
                     <div class="row d-flex flex-row">
@@ -179,19 +166,19 @@ https://templatemo.com/tm-559-zay-shop
                                 <!--Slides-->
                                 <div class="carousel-inner product-links-wap" role="listbox">
 
-                                     <!--First slide-->
-                                     <div class="carousel-item active">
-                                        <div class="row">
-                                            <div class="col-3 p-md-5">
+                                    <!--First slide-->
+                                    <div class="carousel-item active">
+                                        <div class="row m-auto d-flex ">
+                                            <div class="col-4 p-md-4 m-auto">
                                                 <a href="#"><img class="img-fluid brand-img" src="../assets/img/Huawei-logo-768x432.jpg" alt="Brand Logo"></a>
                                             </div>
-                                            <div class="col-3 p-md-5">
+                                            <div class="col-4 p-md-4 m-auto">
                                                 <a href="#"><img class="img-fluid brand-img" src="../assets/img/vecteezy_3d-logo-of-apple-iphone_20489292_718.png" alt="Brand Logo"></a>
                                             </div>
-                                            <div class="col-3 p-md-5">
+                                            <div class="col-4 p-md-4 m-auto ">
                                                 <a href="#"><img class="img-fluid brand-img" src="../assets/img/Samsung_Logo.svg.png" alt="Brand Logo"></a>
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                     <!--End First slide-->

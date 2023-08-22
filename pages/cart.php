@@ -141,57 +141,56 @@ if (isset($_SESSION['userid'])) {
     </article>
 here;
                 } else {
+if (!empty($_SESSION["product"])) {
 
-                    foreach (array_unique($_SESSION["product"]) as $value) {
+  
+    foreach (array_unique($_SESSION["product"]) as $value) {
 
-                        $pdo_read = $conn->prepare("SELECT * FROM `product` WHERE id = $value");
-                        $pdo_read->execute();
-                        $arr = $pdo_read->fetch(PDO::FETCH_ASSOC);
+        $pdo_read = $conn->prepare("SELECT * FROM `product` WHERE id = $value");
+        $pdo_read->execute();
+        $arr = $pdo_read->fetch(PDO::FETCH_ASSOC);
 
-                        echo <<<"here"
-            <article class="product">
-            <header>
-                <a class="remove">
-                    <img src="../admin_pages/uploads/$arr[main_picture]" alt="">
+        echo <<<"here"
+<article class="product">
+<header>
+<a class="remove">
+    <img src="../admin_pages/uploads/$arr[main_picture]" alt="">
 
-                    <h3>Remove product</h3>
-                </a>
-            </header>
+    <h3>Remove product</h3>
+</a>
+</header>
 
-            <div class="cont_content">
-            <div class="content">
+<div class="cont_content">
+<div class="content">
 
-                <h1>$arr[product_name]</h1>
+<h1>$arr[product_name]</h1>
 
-                $arr[discription]
+$arr[discription]
 
-      
-            </div>
 
-            <footer class="content">
+</div>
 
-                <span class="qt-minus">-</span>
-                <span class="qt">1</span><input class="hi"  name="$arr[id]" value="1" hidden>
-                <span class="qt-plus">+</span>
+<footer class="content">
 
-                <h2 class="full-price">
-                $arr[price] JOD
-                </h2>
+<span class="qt-minus">-</span>
+<span class="qt">1</span><input class="hi"  name="$arr[id]" value="1" hidden>
+<span class="qt-plus">+</span>
 
-                <h2 class="price">
-                $arr[price] JOD
-                </h2>
-            </footer></div>
-        </article>
+<h2 class="full-price">
+$arr[price] JOD
+</h2>
+
+<h2 class="price">
+$arr[price] JOD
+</h2>
+</footer></div>
+</article>
 here;
-                    }
+    }
+}
                 }
-
-
-
                 ?>
             </section>
-
         </div>
 
         <footer id="site-footer">
