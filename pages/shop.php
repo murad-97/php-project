@@ -176,7 +176,7 @@ https://templatemo.com/tm-559-zay-shop
 
                             // Pagination for filtered products
                             $num_product = count($products);
-                            $num_every_page = 9;
+                            $num_every_page = 12;
                             $totalPages = ceil($num_product / $num_every_page);
 
                             if (isset($_GET['page'])) {
@@ -248,7 +248,7 @@ https://templatemo.com/tm-559-zay-shop
                             // ********* Pagination *********//
 
                             $num_product = count($products);
-                            $num_every_page = 9;
+                            $num_every_page = 12;
                             $totalPages = ceil($num_product / $num_every_page);
 
                             if (isset($_GET['page'])) {
@@ -308,7 +308,7 @@ https://templatemo.com/tm-559-zay-shop
                     } elseif (count($products) > 0) {
 
                         // ********* Pagination *********//
-                        $num_every_page =9;
+                        $num_every_page =12;
                         $totalProducts = count($products);
                         $totalPages = ceil($totalProducts / $num_every_page);
 
